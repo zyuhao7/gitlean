@@ -22,6 +22,10 @@
 
 [30 天 Git 学习路线](docs/git-30-days.md)
 
+如果你想按天学习，可以直接从每日目录开始：
+
+[30 天每日学习目录](docs/days/README.md)
+
 ## 学习路线图
 
 ```mermaid
@@ -61,3 +65,9 @@ my-git-practice/
 ```
 
 你可以每天在这个练习仓库里提交一次，30 天结束后会得到一条完整的 Git 学习提交记录。
+
+## 已完善内容
+
+- `docs/git-30-days.md`：完整 30 天路线。
+- `docs/days/`：每天一份独立学习文档。
+- `docs/git-basics-day1-5.md`：1-5 天基础概念速览。
