@@ -26,6 +26,10 @@
 
 [30 天每日学习目录](docs/days/README.md)
 
+如果你只想先过一遍前 5 天，也可以看：
+
+[1-5 天基础概念速览](docs/git-basics-day1-5.md)
+
 ## 学习路线图
 
 ```mermaid
