@@ -1,4 +1,4 @@
-# Git Learn in 30 Days main branch
+# Git Learn in 30 Days
 
 这是一个面向初学者的 Git 30 天学习路线。
 
