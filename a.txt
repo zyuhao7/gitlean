@@ -1,3 +1,0 @@
-printf("this is a C language coe");
-
-a.txt
