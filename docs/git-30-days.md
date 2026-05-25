@@ -50,8 +50,8 @@ flowchart LR
 - 第 21-25 天：进阶工作流
   - [Day 21：使用标签](days/day21.md)
   - [Day 22：理解 HEAD](days/day22.md)
-  - [Day 23：rebase 入门](days/day23.md)
-  - [Day 24：整理提交记录](days/day24.md)
+  - [Day 23：rebase 深入理解](days/day23.md)
+  - [Day 24：整理提交记录实战](days/day24.md)
   - [Day 25：cherry-pick](days/day25.md)
 - 第 26-30 天：实战与规范
   - [Day 26：Pull Request 工作流](days/day26.md)

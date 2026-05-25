@@ -2,32 +2,169 @@
 
 ## 学习目标
 
-知道 `HEAD` 指向哪里。
+理解 `HEAD` 表示你当前所在的位置，以及它和分支、提交之间的关系。
 
 ## 核心概念
 
-`HEAD` 表示你当前所在的位置。通常它指向当前分支的最新提交。
+`HEAD` 是 Git 里的“当前位置指针”。
 
-## 常用命令
+多数时候，`HEAD` 指向当前分支，当前分支再指向最新提交：
 
-```bash
-git log --oneline --decorate
+```text
+A---B---C  main
+          ^
+          HEAD
 ```
 
-你可能会看到：
+更准确地说是：
+
+```text
+HEAD -> main -> C
+```
+
+也就是说，你提交一次后，`main` 会前进，`HEAD` 仍然跟着 `main`。
+
+## 查看 HEAD
+
+常用命令：
+
+```bash
+git log --oneline --decorate -3
+```
+
+你可能看到：
 
 ```text
 abc1234 (HEAD -> main, origin/main) update readme
 ```
 
+这表示：
+
+- 当前提交是 `abc1234`
+- `HEAD` 正指向 `main`
+- `main` 和 `origin/main` 当前在同一个提交上
+
+也可以直接查看：
+
+```bash
+git symbolic-ref --short HEAD
+```
+
+如果你在普通分支上，它会输出类似：
+
+```text
+main
+```
+
+## HEAD~1 是什么意思
+
+很多命令里会看到：
+
+```bash
+HEAD~1
+HEAD~2
+```
+
+它们表示从当前位置往前数：
+
+| 写法 | 含义 |
+|---|---|
+| `HEAD` | 当前提交 |
+| `HEAD~1` | 当前提交的上一个提交 |
+| `HEAD~2` | 当前提交往前两个提交 |
+
+例如：
+
+```text
+A---B---C  main
+        ^
+        HEAD
+```
+
+此时：
+
+- `HEAD` 是 `C`
+- `HEAD~1` 是 `B`
+- `HEAD~2` 是 `A`
+
+## detached HEAD 是什么
+
+正常情况下，你在分支上：
+
+```text
+HEAD -> main -> C
+```
+
+如果你直接切到某个 commit：
+
+```bash
+git switch --detach <commit-id>
+```
+
+就会变成：
+
+```text
+HEAD -> B
+main -> C
+```
+
+这叫 detached HEAD，意思是 `HEAD` 没有指向某个分支，而是直接指向一个提交。
+
+detached HEAD 适合临时查看历史版本，但不适合直接长期开发。
+
+如果你在 detached HEAD 状态下做了修改并提交，建议立刻创建分支保存：
+
+```bash
+git switch -c feature/save-detached-work
+```
+
+## HEAD 常见用法
+
+查看上一次提交：
+
+```bash
+git show HEAD~1
+```
+
+撤销最近一次提交但保留改动：
+
+```bash
+git reset --soft HEAD~1
+```
+
+比较当前文件和上一次提交：
+
+```bash
+git diff HEAD~1
+```
+
 ## 今日练习
 
-1. 查看当前 `HEAD`。
-2. 切换到另一个分支。
-3. 再次查看 `HEAD`。
-4. 对比输出变化。
+1. 执行：
+
+```bash
+git log --oneline --decorate -3
+```
+
+2. 切换到另一个分支，再查看 `HEAD`。
+3. 使用 `git show HEAD~1` 查看上一次提交。
+4. 找一个历史提交，尝试进入 detached HEAD：
+
+```bash
+git switch --detach <commit-id>
+```
+
+5. 看完后切回 main：
+
+```bash
+git switch main
+```
 
 ## 检查点
 
-你应该知道：`HEAD` 不是分支本身，而是当前检出位置的指针。
+你应该知道：
 
+- `HEAD` 表示当前所在位置
+- 普通情况下是 `HEAD -> branch -> commit`
+- `HEAD~1` 表示当前位置的上一个提交
+- detached HEAD 是直接站在某个提交上，不在分支上

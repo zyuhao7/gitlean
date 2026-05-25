@@ -1,0 +1,11 @@
+# 本地调研 Codex skills 时下载的外部仓库，不属于这个 Git 学习项目。
+anthropics-skills/
+debug-skill/
+dotfiles-codex/
+openai-skills/
+
+# 本地环境和临时文件。
+.env
+.env.*
+*.log
+*.tmp

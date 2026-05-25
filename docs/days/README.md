@@ -38,8 +38,8 @@
 
 - [Day 21：使用标签](day21.md)
 - [Day 22：理解 HEAD](day22.md)
-- [Day 23：rebase 入门](day23.md)
-- [Day 24：整理提交记录](day24.md)
+- [Day 23：rebase 深入理解](day23.md)
+- [Day 24：整理提交记录实战](day24.md)
 - [Day 25：cherry-pick](day25.md)
 
 ## 实战与规范
@@ -49,4 +49,3 @@
 - [Day 28：常见协作规范](day28.md)
 - [Day 29：排查问题](day29.md)
 - [Day 30：综合实战](day30.md)
-
